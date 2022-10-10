@@ -12,11 +12,14 @@ private:
   double weight;
   double velocity;
   double position;
+  double size;
 public:
-  Particle(double weight, double velocity, double position) {
+  Particle(double weight, double velocity, double position, double size) {
     this->weight = weight;
     this->velocity = velocity;
     this->position = position;
+    this->size = size;
+
   }
   double getWeight() {
     return weight;
@@ -25,21 +28,26 @@ public:
     return velocity;
   }
 
-    double getPosition() {
-        return position;
-    }
+  double getPosition() {
+    return position;
+  }
+
+  double getSize() {
+    return size;
+  } 
 
   void setWeight(double weight) {
     this->weight = weight;
   }
 
-    void setVelocity(double velocity) {
-        this->velocity = velocity;
-    }
+  void setVelocity(double velocity) {
+      this->velocity = velocity;
+  }
 
-    void setPosition(double position) {
-        this->position = position;
-    }
+  void setPosition(double position) {
+      this->position = position;
+  }
+
 };
 
 // class that holds multiple particles
@@ -52,12 +60,7 @@ public:
     this->numParticles = numParticles;
      particles = new Particle*[100];
     for (int i = 0; i < 100; i++) {
-        particles[i] = new Particle(1, 2, 5);
-    }
-    for (int i = 0; i < 100; i++) {
-        particles[i]->setWeight(2);
-        particles[i]->setVelocity(3);
-        particles[i]->setPosition(4);
+        particles[i] = new Particle(1, 2, 5, 1);
     }
   }
   ~ParticleSystem() {
